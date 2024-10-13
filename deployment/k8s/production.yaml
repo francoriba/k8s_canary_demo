@@ -1,0 +1,38 @@
+# Despliegue para la aplicación principal
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stable-app
+  labels:
+    app: stable-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stable-app
+  template:
+    metadata:
+      labels:
+        app: stable-app
+    spec:
+      containers:
+      - name: stable-app
+        image: francoriba/stable-app:latest  # Usa tu imagen aquí
+        ports:
+        - containerPort: 5000  # Puerto que expone la aplicación
+---
+# Servicio para la aplicación principal
+apiVersion: v1
+kind: Service
+metadata:
+  name: stable-app
+  labels:
+    app: stable-app
+spec:
+  ports:
+  - port: 80
+    targetPort: 5000  # Mapea el puerto del servicio al puerto del contenedor
+    protocol: TCP
+    name: http
+  selector:
+    app: stable-app
