@@ -21,7 +21,13 @@ The idea for this demo came up from this [blog](https://blog.devops.dev/kubernet
   Where `<minikube ip>` is the IP address of your Minikube cluster. You can obtain it by running:
   `minikube ip`
 
+## How to test
 
+You can run this command to see the application responding with the correct version:
+
+`for i in $(seq 1 10); do curl -s --resolve minikube.local:80:$(minikube ip) http://minikube.local | grep "Application"; done`
+
+Have in mind that the 50/50 split is probabilistic, not deterministic. Each individual request has a 50% chance of going to either version, but over a small number of requests, you can see variations.
 
 ## How It Works
 
