@@ -1,4 +1,4 @@
-# Despliegue para la aplicación canaria
+# Deployment for the canary application
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,11 +17,10 @@ spec:
     spec:
       containers:
       - name: canary-app
-        image: francoriba/canary-app:latest  # Usa tu imagen aquí
+        image: francoriba/canary-app:latest 
         ports:
-        - containerPort: 5001  # Puerto que expone la aplicación
+        - containerPort: 5001  # Port exposed by the application
 ---
-# Servicio para la aplicación canaria
 apiVersion: v1
 kind: Service
 metadata:
@@ -31,7 +30,7 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 5001  # Mapea el puerto del servicio al puerto del contenedor
+    targetPort: 5001  # Map the service port to the container port
     protocol: TCP
     name: http
   selector:
