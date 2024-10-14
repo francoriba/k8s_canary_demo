@@ -2,6 +2,8 @@
 
 This project demonstrates basic Kubernetes concepts, focusing on simulating a basic environment suitable for a deployment following the canary strategy.
 
+The idea for this demo came up from this [blog](https://blog.devops.dev/kubernetes-deployment-strategies-part-2-ec2290717fcb)
+
 ## Infrastructure
 
 <p align="center">
