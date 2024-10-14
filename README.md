@@ -17,9 +17,8 @@ The idea for this demo came up from this [blog](https://blog.devops.dev/kubernet
 3. [Lens](https://k8slens.dev/) (optional but recommended, to manage the cluster)
 4. Run `minikube addons enable ingress` (to allow your minikube cluster to use the ingress controller)
 5. Run `kubectl config use-context minikube` (to set minikube as the kubectl commands context)
-6. In order to the dns to work we need to add the following to the /etc/hosts file: `<minikube ip> minikube.local`
-  Where `<minikube ip>` is the IP address of your Minikube cluster. You can obtain it by running:
-  `minikube ip`
+6. For ocal hostname resolution we need to add the following to the /etc/hosts file: `<minikube ip> minikube.local`
+  Where `<minikube ip>` is the IP address of your Minikube cluster. You can obtain it by running: `minikube ip`
 
 ## How to test
 
